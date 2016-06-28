@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+
+  "name": "Acronym Search",
+  "description": "This extension shows the full form of acronyms",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Acronym Search"
+  },
+  
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "notifications",
+    "https://ajax.googleapis.com/",
+    "http://*/*",
+    "https://*/*"
+  ],
+
+  "icons": {
+
+    "16": "icon.png"
+
+    },
+
+  "content_scripts": [{
+     "js": ["popup.js"],
+     "matches": ["http://*/*", "https://*/*"]
+   }],
+
+  "web_accessible_resources": [ "popup.js" ]
+}
